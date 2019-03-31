@@ -1,0 +1,50 @@
+<div class="container">
+    
+    {{!-- header --}}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-header" id="burger-header">
+                <h1> Eat-Da-Burger </h1>
+            </div>
+        </div>
+    </div>
+
+    {{!-- Burger List --}}
+    <div class="row">
+        {{!-- to eat --}}
+        <div class="col-12 col-md-5">
+            <h2> Burgers to Eat </h2>
+            <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                <div class="row burger-box">
+                    <p class="burger-name">{{this.burger_name}}</p>
+                    <button class="btn eat-burger" data-id={{this.id}}>Eat Burger!</button>
+                </div>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        {{!-- eaten --}}
+        <div class="col-12 col-md-5 col-md-offset-2">
+            <h2> Eaten Burgers </h2>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                <p class="burger-name">{{this.burger_name}}</p>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    {{!-- new burger --}}
+    <div class="row">
+        <div class="col-12 col-md-8" id="add-burger">
+            <h2> Add New Burger </h2>
+            <input class="form-control" id="add-burger-form" placeholder="Enter Burger Name"></input>
+            <button class="btn" id="add-burger-btn">Add</button>
+        </div>
+    </div>
+</div>
