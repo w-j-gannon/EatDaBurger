@@ -1,54 +1,66 @@
-<div class="container">
-    
-    {{!-- header --}}
-    <div class="jumbotron">
-        <div class="row">
-            <div class="col-12">
-                <div class="page-header" id="burger-header">
-                    <img src="/assets/burgerPic.png" style="width:50%" alt="burger-picture">
-                    <h1> Eat-Da-Burger </h1>
+<div class="bg-warning pb-5">
+    <div class="container">
+        
+        {{!-- header --}}
+        <div class="jumbotron bg-white text-center pt-0 mb-3">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-header" id="burger-header">
+                        <img src="/assets/burgerPic.png" style="width:50%" alt="burger-picture">
+                        <h1> Eat-Da-Burger </h1>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
+        
 
-    {{!-- Burger List --}}
-    <div class="row">
-        {{!-- to eat --}}
-        <div class="col-12 col-md-5">
-            <h2> Burgers to Eat </h2>
-            <ul>
-                {{#each burgers}}
-                {{#unless devoured}}
-                <div class="row burger-box">
-                    <p class="burger-name">{{this.burger_name}}</p>
-                    <button class="btn eat-burger" data-id={{this.id}}>Eat Burger!</button>
-                </div>
-                {{/unless}}
-                {{/each}}
-            </ul>
+        {{!-- Burger List --}}
+        <div class="row mb-3">
+            {{!-- to eat --}}
+            <div class="text-center col-12 col-md-6">
+                <h2> Burgers to Eat </h2>
+                <ul>
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    <div class="row d-flex justify-content-end burger-box">
+                        <div class="alert alert-warning burger-name">{{this.burger_name}}</div>
+                        <button class="btn btn-danger btn-small eat-burger" data-id={{this.id}}>Eat Burger!</button>
+                    </div>
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+
+            {{!-- eaten --}}
+            <div class="text-center col-12 col-md-6">
+                <h2> Eaten Burgers </h2>
+                <ul>
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    <div class="d-flex justify-content-start alert alert-light burger-name">{{this.burger_name}}</div>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
         </div>
 
-        {{!-- eaten --}}
-        <div class="col-12 col-md-5 col-md-offset-2">
-            <h2> Eaten Burgers </h2>
-            <ul>
-                {{#each burgers}}
-                {{#if devoured}}
-                <p class="burger-name">{{this.burger_name}}</p>
-                {{/if}}
-                {{/each}}
-            </ul>
-        </div>
-    </div>
-
-    {{!-- new burger --}}
-    <div class="row">
-        <div class="col-12 col-md-8" id="add-burger">
-            <h2> Add New Burger </h2>
-            <input class="form-control" id="add-burger-form" placeholder="Enter Burger Name"></input>
-            <button class="btn" id="add-burger-btn">Add</button>
+        {{!-- new burger --}}
+        <div class="row justify-content-center mb-3">
+            <div class="col-12 col-md-8" id="add-burger">
+                <h2 class="d-flex justify-content-center"> Add New Burger </h2>
+                <input class="form-control d-flex justify-content-center" id="add-burger-form" placeholder="Enter Burger Name"></input>
+                <button class="btn btn-success btn-block d-flex justify-content-center" id="add-burger-btn">Add</button>
+            </div>
         </div>
     </div>
 </div>
+
+<footer class="bd-footer bg-light text-muted">
+  <div class="container-fluid p-2 p-md-5">
+    <ul class="bd-footer-links">
+      <li><a href="https://github.com/w-j-gannon/EatDaBurger">GitHub</a></li>
+      <li><a href="https://w-j-gannon.github.io/">Portfolio</a></li>
+    </ul>
+    <p>&copy; 2019 William Gannon</p>
+  </div>
+</footer>
