@@ -23,8 +23,8 @@
                     {{#each burgers}}
                     {{#unless devoured}}
                     <div class="row d-flex justify-content-end burger-box">
-                        <div class="alert alert-warning burger-name">{{this.burger_name}}</div>
-                        <button class="btn btn-danger btn-small eat-burger" data-id={{this.id}}>Eat Burger!</button>
+                        <div class="alert alert-warning mr-3 burger-name"><i class="fas fa-hamburger"></i>  {{this.burger_name}}</div>
+                        <button class="btn btn-danger btn-small mb-3 eat-burger" data-id={{this.id}}>Eat Burger!</button>
                     </div>
                     {{/unless}}
                     {{/each}}
@@ -48,7 +48,7 @@
         <div class="row justify-content-center mb-3">
             <div class="col-12 col-md-8" id="add-burger">
                 <h2 class="d-flex justify-content-center"> Add New Burger </h2>
-                <input class="form-control d-flex justify-content-center" id="add-burger-form" placeholder="Enter Burger Name"></input>
+                <input class="form-control d-flex justify-content-center mb-3" id="add-burger-form" placeholder="Enter Burger Name"></input>
                 <button class="btn btn-success btn-block d-flex justify-content-center" id="add-burger-btn">Add</button>
             </div>
         </div>
